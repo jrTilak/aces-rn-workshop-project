@@ -1,8 +1,9 @@
 import { Emoji } from "@/components/emoji";
 import { P } from "@/components/p";
+import { TextArea } from "@/components/textarea";
 import { EMOJIS } from "@/constants/emojis";
 import { COLORS } from "@/theme/colors";
-import { StyleSheet, View } from "react-native";
+import { Button, ScrollView, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Index() {
@@ -12,13 +13,19 @@ export default function Index() {
       <View style={styles.formContainer}>
         <P>How are you feeling today?</P>
         {/* images */}
-        <View style={styles.emojiContainer}>
+        <ScrollView
+          horizontal={true}
+          contentContainerStyle={styles.emojiContainer}
+        >
           {EMOJIS.map((emoji) => (
             <Emoji text={emoji.name} key={emoji.name} source={emoji.image} />
           ))}
+        </ScrollView>
+        <View>
+          <P>Notes</P>
+          <TextArea />
         </View>
-        {/* input */}
-        {/* button */}
+        <Button title="Save" />
       </View>
     </View>
   );
@@ -31,11 +38,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   emojiContainer: {
-    flexDirection: "row",
     gap: 8,
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center",
   },
   formContainer: {
     gap: 12,
