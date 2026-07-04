@@ -11,5 +11,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontWeight: 400,
+    fontFamily: "SpaceGrotesk_400Regular",
   },
 });
