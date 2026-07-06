@@ -7,6 +7,7 @@ import {
 } from "@expo-google-fonts/space-grotesk";
 
 import { useFonts } from "@expo-google-fonts/space-grotesk/useFonts";
+import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
@@ -34,6 +35,7 @@ export default function RootLayout() {
   }
   return (
     <SafeAreaProvider>
+      <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false }} />
     </SafeAreaProvider>
   );

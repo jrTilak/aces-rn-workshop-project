@@ -1,8 +1,28 @@
 import { Tabs } from "expo-router";
-import { ChartPie, House } from "lucide-react-native";
+import { ChartNoAxesColumn, House } from "lucide-react-native";
+
+import { COLORS } from "@/theme/colors";
+
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.muted,
+        tabBarLabelStyle: {
+          fontFamily: "SpaceGrotesk_500Medium",
+          fontSize: 12,
+        },
+        tabBarStyle: {
+          backgroundColor: COLORS.card,
+          borderTopColor: COLORS.border,
+          height: 78,
+          paddingBottom: 12,
+          paddingTop: 8,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -14,7 +34,9 @@ export default function TabLayout() {
         name="stats"
         options={{
           title: "Stats",
-          tabBarIcon: ({ color }) => <ChartPie size={28} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <ChartNoAxesColumn size={28} color={color} />
+          ),
         }}
       />
     </Tabs>
